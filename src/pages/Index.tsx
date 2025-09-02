@@ -6,12 +6,11 @@ import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Label } from '@/components/ui/label'
-import { Textarea } from '@/components/ui/textarea'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Separator } from '@/components/ui/separator'
-import Icon from '@/components/ui/icon'
+import { Brain, Search, BookOpen, Shield, Lock, Clock, LogIn, UserPlus, Star, Calendar, Users, UserCheck, FileText, Plus, Mail, Phone, MessageCircle } from 'lucide-react'
 
-export default function Index() {
+const Index = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedSpecialty, setSelectedSpecialty] = useState('')
   const [isLoginOpen, setIsLoginOpen] = useState(false)
@@ -104,19 +103,19 @@ export default function Index() {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-8">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-therapy-primary to-therapy-secondary rounded-xl flex items-center justify-center">
-                  <Icon name="Brain" className="text-white" size={20} />
+                <div className="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-xl flex items-center justify-center">
+                  <Brain className="text-white" size={20} />
                 </div>
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-therapy-primary to-therapy-secondary bg-clip-text text-transparent">
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                   PsychPlatform
                 </h1>
               </div>
               
               <nav className="hidden md:flex space-x-6">
-                <a href="#home" className="text-gray-700 hover:text-therapy-primary transition-colors">Главная</a>
-                <a href="#psychologists" className="text-gray-700 hover:text-therapy-primary transition-colors">Психологи</a>
-                <a href="#blog" className="text-gray-700 hover:text-therapy-primary transition-colors">Блог</a>
-                <a href="#about" className="text-gray-700 hover:text-therapy-primary transition-colors">О нас</a>
+                <a href="#home" className="text-gray-700 hover:text-primary transition-colors">Главная</a>
+                <a href="#psychologists" className="text-gray-700 hover:text-primary transition-colors">Психологи</a>
+                <a href="#blog" className="text-gray-700 hover:text-primary transition-colors">Блог</a>
+                <a href="#about" className="text-gray-700 hover:text-primary transition-colors">О нас</a>
               </nav>
             </div>
 
@@ -124,7 +123,7 @@ export default function Index() {
               <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
                 <DialogTrigger asChild>
                   <Button variant="outline" className="hidden sm:flex">
-                    <Icon name="LogIn" size={16} className="mr-2" />
+                    <LogIn size={16} className="mr-2" />
                     Вход
                   </Button>
                 </DialogTrigger>
@@ -144,11 +143,11 @@ export default function Index() {
                       <Label htmlFor="password">Пароль</Label>
                       <Input id="password" type="password" />
                     </div>
-                    <Button className="w-full bg-therapy-primary hover:bg-therapy-primary/90">
+                    <Button className="w-full">
                       Войти
                     </Button>
                     <div className="text-center">
-                      <a href="#" className="text-sm text-therapy-primary hover:underline">
+                      <a href="#" className="text-sm text-primary hover:underline">
                         Забыли пароль?
                       </a>
                     </div>
@@ -158,8 +157,8 @@ export default function Index() {
 
               <Dialog open={isRegisterOpen} onOpenChange={setIsRegisterOpen}>
                 <DialogTrigger asChild>
-                  <Button className="bg-therapy-primary hover:bg-therapy-primary/90">
-                    <Icon name="UserPlus" size={16} className="mr-2" />
+                  <Button>
+                    <UserPlus size={16} className="mr-2" />
                     Регистрация
                   </Button>
                 </DialogTrigger>
@@ -188,7 +187,7 @@ export default function Index() {
                         <Label htmlFor="client-password">Пароль</Label>
                         <Input id="client-password" type="password" />
                       </div>
-                      <Button className="w-full bg-therapy-primary hover:bg-therapy-primary/90">
+                      <Button className="w-full">
                         Зарегистрироваться как клиент
                       </Button>
                     </TabsContent>
@@ -219,7 +218,7 @@ export default function Index() {
                         <Label htmlFor="psych-password">Пароль</Label>
                         <Input id="psych-password" type="password" />
                       </div>
-                      <Button className="w-full bg-therapy-secondary hover:bg-therapy-secondary/90">
+                      <Button className="w-full bg-secondary hover:bg-secondary/90">
                         Зарегистрироваться как психолог
                       </Button>
                     </TabsContent>
@@ -235,41 +234,41 @@ export default function Index() {
       <section id="home" className="py-20 px-4">
         <div className="container mx-auto text-center">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 animate-fade-in">
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
               Профессиональная{' '}
-              <span className="bg-gradient-to-r from-therapy-primary to-therapy-secondary bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 психологическая помощь
               </span>{' '}
               онлайн
             </h2>
-            <p className="text-xl text-gray-600 mb-8 animate-fade-in">
+            <p className="text-xl text-gray-600 mb-8">
               Найдите своего психолога среди сертифицированных специалистов. 
               Безопасно, конфиденциально и эффективно.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-scale-in">
-              <Button size="lg" className="bg-therapy-primary hover:bg-therapy-primary/90 text-lg px-8 py-4">
-                <Icon name="Search" size={20} className="mr-2" />
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+              <Button size="lg" className="text-lg px-8 py-4">
+                <Search size={20} className="mr-2" />
                 Найти психолога
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-4 border-therapy-primary text-therapy-primary hover:bg-therapy-primary hover:text-white">
-                <Icon name="BookOpen" size={20} className="mr-2" />
+              <Button size="lg" variant="outline" className="text-lg px-8 py-4 border-primary text-primary hover:bg-primary hover:text-white">
+                <BookOpen size={20} className="mr-2" />
                 Читать блог
               </Button>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
               <div className="text-center p-6 rounded-xl bg-white/60 backdrop-blur-sm border border-gray-200 hover:shadow-lg transition-all">
-                <div className="w-16 h-16 bg-therapy-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon name="Shield" className="text-therapy-primary" size={24} />
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Shield className="text-primary" size={24} />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Проверенные специалисты</h3>
                 <p className="text-gray-600">Все психологи имеют подтвержденные дипломы и лицензии</p>
               </div>
               
               <div className="text-center p-6 rounded-xl bg-white/60 backdrop-blur-sm border border-gray-200 hover:shadow-lg transition-all">
-                <div className="w-16 h-16 bg-therapy-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon name="Lock" className="text-therapy-secondary" size={24} />
+                <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Lock className="text-secondary" size={24} />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">100% конфиденциально</h3>
                 <p className="text-gray-600">Ваша приватность защищена современным шифрованием</p>
@@ -277,7 +276,7 @@ export default function Index() {
               
               <div className="text-center p-6 rounded-xl bg-white/60 backdrop-blur-sm border border-gray-200 hover:shadow-lg transition-all">
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon name="Clock" className="text-purple-600" size={24} />
+                  <Clock className="text-purple-600" size={24} />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Круглосуточно</h3>
                 <p className="text-gray-600">Доступ к платформе и материалам 24/7</p>
@@ -332,7 +331,7 @@ export default function Index() {
                     />
                     <div className="absolute top-4 right-4">
                       <Badge className="bg-white text-gray-900">
-                        <Icon name="Star" size={14} className="mr-1 fill-yellow-400 text-yellow-400" />
+                        <Star size={14} className="mr-1 fill-yellow-400 text-yellow-400" />
                         {psychologist.rating}
                       </Badge>
                     </div>
@@ -340,7 +339,7 @@ export default function Index() {
                 </CardHeader>
                 <CardContent className="p-6">
                   <CardTitle className="text-xl mb-2">{psychologist.name}</CardTitle>
-                  <CardDescription className="text-therapy-primary font-medium mb-3">
+                  <CardDescription className="text-primary font-medium mb-3">
                     {psychologist.specialty}
                   </CardDescription>
                   
@@ -362,11 +361,11 @@ export default function Index() {
                   <Separator className="my-4" />
                   
                   <div className="flex justify-between items-center">
-                    <span className="text-2xl font-bold text-therapy-primary">
+                    <span className="text-2xl font-bold text-primary">
                       {psychologist.price}
                     </span>
-                    <Button className="bg-therapy-primary hover:bg-therapy-primary/90">
-                      <Icon name="Calendar" size={16} className="mr-2" />
+                    <Button>
+                      <Calendar size={16} className="mr-2" />
                       Записаться
                     </Button>
                   </div>
@@ -403,11 +402,11 @@ export default function Index() {
                     ))}
                   </div>
                   
-                  <CardTitle className="text-xl mb-3 line-clamp-2">
+                  <CardTitle className="text-xl mb-3">
                     {post.title}
                   </CardTitle>
                   
-                  <CardDescription className="mb-4 line-clamp-3">
+                  <CardDescription className="mb-4">
                     {post.excerpt}
                   </CardDescription>
                   
@@ -419,8 +418,8 @@ export default function Index() {
                     </div>
                   </div>
                   
-                  <Button variant="outline" className="w-full border-therapy-primary text-therapy-primary hover:bg-therapy-primary hover:text-white">
-                    <Icon name="BookOpen" size={16} className="mr-2" />
+                  <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
+                    <BookOpen size={16} className="mr-2" />
                     Читать статью
                   </Button>
                 </CardContent>
@@ -429,8 +428,8 @@ export default function Index() {
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" variant="outline" className="border-therapy-primary text-therapy-primary hover:bg-therapy-primary hover:text-white">
-              <Icon name="Plus" size={20} className="mr-2" />
+            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+              <Plus size={20} className="mr-2" />
               Показать больше статей
             </Button>
           </div>
@@ -460,9 +459,9 @@ export default function Index() {
                       <div className="flex items-center justify-between">
                         <div>
                           <p className="text-sm text-gray-600">Всего психологов</p>
-                          <p className="text-3xl font-bold text-therapy-primary">127</p>
+                          <p className="text-3xl font-bold text-primary">127</p>
                         </div>
-                        <Icon name="Users" className="text-therapy-primary" size={32} />
+                        <Users className="text-primary" size={32} />
                       </div>
                     </CardContent>
                   </Card>
@@ -472,9 +471,9 @@ export default function Index() {
                       <div className="flex items-center justify-between">
                         <div>
                           <p className="text-sm text-gray-600">Активных клиентов</p>
-                          <p className="text-3xl font-bold text-therapy-secondary">1,247</p>
+                          <p className="text-3xl font-bold text-secondary">1,247</p>
                         </div>
-                        <Icon name="UserCheck" className="text-therapy-secondary" size={32} />
+                        <UserCheck className="text-secondary" size={32} />
                       </div>
                     </CardContent>
                   </Card>
@@ -486,7 +485,7 @@ export default function Index() {
                           <p className="text-sm text-gray-600">Сессий проведено</p>
                           <p className="text-3xl font-bold text-purple-600">3,456</p>
                         </div>
-                        <Icon name="Calendar" className="text-purple-600" size={32} />
+                        <Calendar className="text-purple-600" size={32} />
                       </div>
                     </CardContent>
                   </Card>
@@ -498,7 +497,7 @@ export default function Index() {
                           <p className="text-sm text-gray-600">Статей в блоге</p>
                           <p className="text-3xl font-bold text-blue-600">89</p>
                         </div>
-                        <Icon name="FileText" className="text-blue-600" size={32} />
+                        <FileText className="text-blue-600" size={32} />
                       </div>
                     </CardContent>
                   </Card>
@@ -540,7 +539,7 @@ export default function Index() {
                     <div className="space-y-4">
                       <div className="flex justify-between items-center">
                         <span className="font-medium">Новые регистрации (неделя)</span>
-                        <span className="text-2xl font-bold text-therapy-primary">+89</span>
+                        <span className="text-2xl font-bold text-primary">+89</span>
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="font-medium">Обращения в поддержку</span>
@@ -548,7 +547,7 @@ export default function Index() {
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="font-medium">Активность пользователей</span>
-                        <span className="text-therapy-secondary font-semibold">↑ 23%</span>
+                        <span className="text-secondary font-semibold">↑ 23%</span>
                       </div>
                     </div>
                   </CardContent>
@@ -569,11 +568,11 @@ export default function Index() {
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="font-medium">Опубликованных статей</span>
-                        <span className="text-2xl font-bold text-therapy-secondary">89</span>
+                        <span className="text-2xl font-bold text-secondary">89</span>
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="font-medium">Просмотры блога (месяц)</span>
-                        <span className="text-therapy-primary font-semibold">45,678</span>
+                        <span className="text-primary font-semibold">45,678</span>
                       </div>
                     </div>
                   </CardContent>
@@ -590,8 +589,8 @@ export default function Index() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-10 h-10 bg-gradient-to-r from-therapy-primary to-therapy-secondary rounded-xl flex items-center justify-center">
-                  <Icon name="Brain" className="text-white" size={20} />
+                <div className="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-xl flex items-center justify-center">
+                  <Brain className="text-white" size={20} />
                 </div>
                 <h3 className="text-xl font-bold">PsychPlatform</h3>
               </div>
@@ -639,9 +638,9 @@ export default function Index() {
               © 2024 PsychPlatform. Все права защищены.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Icon name="Mail" className="text-gray-400 hover:text-white cursor-pointer transition-colors" size={20} />
-              <Icon name="Phone" className="text-gray-400 hover:text-white cursor-pointer transition-colors" size={20} />
-              <Icon name="MessageCircle" className="text-gray-400 hover:text-white cursor-pointer transition-colors" size={20} />
+              <Mail className="text-gray-400 hover:text-white cursor-pointer transition-colors" size={20} />
+              <Phone className="text-gray-400 hover:text-white cursor-pointer transition-colors" size={20} />
+              <MessageCircle className="text-gray-400 hover:text-white cursor-pointer transition-colors" size={20} />
             </div>
           </div>
         </div>
@@ -649,3 +648,5 @@ export default function Index() {
     </div>
   )
 }
+
+export default Index
